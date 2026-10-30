@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ff6a13">
+<title>DINZXX STR – Uang IC, Kendaraan, House, Business, Item</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Archivo:wght@500;700;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --bg:#ffffff;--ink:#111111;--panel:#ffffff;--soft:#f1f1f1;--muted:#555555;
+  --orange:#ff6a13;--amber:#ffb020;--hd:#111111;--paper:#fffdf5;
+  --display:'Bowlby One','Arial Black',sans-serif;--body:'Archivo',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,monospace;
+  --hh:calc(64px + env(safe-area-inset-bottom,0px));
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root[data-theme="dark"]{--bg:#121212;--ink:#ffffff;--panel:#1d1d1d;--soft:#2a2a2a;--muted:#b5b5b5}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.55 var(--body);overflow-x:hidden;transition:background .3s,color .3s}
+:focus-visible{outline:4px solid var(--amber);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+button,a{font-family:inherit}
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:80;background:#111;border-bottom:4px solid var(--orange)}
+.tb{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:10px;padding-bottom:10px}
+.logo{font:20px var(--display);color:var(--orange);white-space:nowrap}
+.tools{display:flex;gap:8px}
+.tools button,.tools a{background:transparent;color:#fff;border:2px solid #fff;border-radius:8px;padding:7px 12px;white-space:nowrap;font:800 13px var(--body);cursor:pointer;text-decoration:none;transition:transform .12s,background .12s,color .12s}
+.tools button:hover,.tools a:hover{background:var(--orange);border-color:var(--orange);color:#111}
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--orange);color:#111;border-bottom:4px solid #111}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(0,0,0,.18) 1.6px,transparent 1.8px) 0 0/16px 16px;-webkit-mask-image:linear-gradient(115deg,#000,transparent 65%);mask-image:linear-gradient(115deg,#000,transparent 65%)}
+.hh{position:relative;padding-top:40px;padding-bottom:84px}
+h1{margin:0;font:clamp(54px,16.5vw,200px)/.82 var(--display);letter-spacing:-.01em}
+.w1,.w2{display:block;white-space:nowrap}
+.lt{display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.lt:hover{transform:translateY(-10px) rotate(-5deg)}
+.w2{color:#fff;-webkit-text-stroke:5px #111;paint-order:stroke fill;text-shadow:8px 8px 0 #111}
+.hh p{position:relative;margin:26px 0 22px;max-width:36ch;font:800 clamp(18px,3vw,24px)/1.25 var(--body)}
+.btn{display:inline-block;background:#111;color:#fff;border:3px solid #111;border-radius:10px;padding:13px 24px;font:800 16px var(--body);text-decoration:none;cursor:pointer;box-shadow:5px 5px 0 #fff;transition:transform .1s,box-shadow .1s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 #fff}
+.btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 #fff}
+.stk{position:absolute;background:#fff;border:3px solid #111;border-radius:12px;box-shadow:5px 5px 0 #111;padding:8px 14px;font-weight:800;font-size:13px;text-align:center;line-height:1.2}
+.stk b{display:block;font:26px var(--display)}
+.s1{right:5%;bottom:30px;transform:rotate(-5deg)}
+.s2{right:calc(5% + 140px);bottom:60px;transform:rotate(4deg)}
+.seal{position:absolute;right:4%;top:calc(44px + min(13.5vw,164px));width:clamp(76px,13vw,150px);filter:drop-shadow(5px 5px 0 #111)}
+/* pita caution */
+.tapes{position:relative;height:122px;overflow:hidden;margin-bottom:10px}
+.tp{position:absolute;left:-6%;width:112%;overflow:hidden;white-space:nowrap;font:22px/1 var(--display);padding:12px 0}
+.t1{top:16px;transform:rotate(-2deg);background:#111;color:var(--orange);border-block:3px solid var(--orange)}
+.t2{top:50px;transform:rotate(1.6deg);background:var(--orange);color:#111;border-block:3px solid #111}
+.trk{display:flex;width:max-content}
+.trk span{white-space:pre;padding-right:.5em}
+/* shop */
+main{padding:28px 0 90px}
+.shop{display:grid;gap:30px;grid-template-columns:minmax(0,1fr);align-items:start}
+.shop>*{min-width:0}
+h2{font:30px var(--display);margin:0 0 18px}
+.tabs{display:flex;gap:10px;margin-bottom:26px;overflow-x:auto;padding:4px 6px 12px 2px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{position:relative;flex:none;background:var(--panel);color:var(--ink);border:3px solid var(--ink);border-radius:10px;padding:9px 16px;font:800 14px var(--body);cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .1s,box-shadow .1s,background .1s}
+.tab:hover:not(:disabled){transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.tab[aria-pressed="true"],.tab[aria-pressed="true"]:hover:not(:disabled){background:var(--orange);color:#111;transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.tab:disabled{opacity:.45;cursor:not-allowed;box-shadow:none;text-decoration:line-through}
+.list{display:grid;gap:16px}
+.rowitem{display:grid;grid-template-columns:64px 1fr auto auto;grid-template-areas:"em info price add";gap:6px 16px;align-items:center;padding:14px;background:var(--panel);border:3px solid var(--ink);border-radius:14px;box-shadow:6px 6px 0 var(--ink);transition:transform .15s,box-shadow .15s,background .15s}
+.rowitem:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink);background:var(--orange);color:#111}
+.em{grid-area:em;width:64px;height:64px;display:grid;place-items:center;font-size:32px;background:var(--soft);border:3px solid var(--ink);border-radius:12px;color:#111;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.rowitem:hover .em{transform:rotate(-8deg) scale(1.1);background:#fff}
+.info{grid-area:info;min-width:0}
+.info h3{margin:0;font:18px/1.2 var(--display)}
+.info p{margin:3px 0 0;color:var(--muted);font-size:14px}
+.rowitem:hover .info p{color:#2b1405}
+.price{grid-area:price;background:#111;color:var(--orange);font:800 16px var(--body);padding:5px 12px;border-radius:8px;white-space:nowrap}
+.add{grid-area:add;background:var(--orange);color:#111;border:3px solid var(--ink);border-radius:10px;padding:10px 16px;font:800 14px var(--body);cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:transform .1s,box-shadow .1s}
+.rowitem:hover .add{background:#111;color:#fff}
+.add:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.empty{color:var(--muted);padding:10px 0}
+.how{margin-top:54px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.how div{border:3px solid var(--ink);border-radius:14px;padding:16px 18px;background:var(--panel);box-shadow:5px 5px 0 var(--ink)}
+.how em{display:block;font:44px/1 var(--display);font-style:normal;color:var(--orange);-webkit-text-stroke:2px var(--ink)}
+.how b{display:block;margin-top:4px}
+.how span{color:var(--muted);font-size:14px}
+/* struk */
+.rcpt{position:relative}
+.rh{display:none}
+.rb{position:relative;background:var(--paper);color:#111;font:400 13px/1.5 var(--mono);padding:20px 18px 22px;border:3px solid var(--ink);border-radius:8px;box-shadow:8px 8px 0 var(--ink)}
+.rt{text-align:center;font:18px var(--display);padding-bottom:10px;border-bottom:2px dashed #111;margin-bottom:12px}
+.rt small{display:block;font:700 12px var(--mono);margin-top:4px}
+.rl{padding:8px 0;border-bottom:1px dashed #999}
+.rl1{display:flex;justify-content:space-between;gap:10px;font-weight:700}
+.rl2{display:flex;align-items:center;gap:6px;margin-top:5px}
+.rl2 button{width:26px;height:26px;border:2px solid #111;background:#fff;border-radius:6px;font:700 15px/1 var(--mono);cursor:pointer;padding:0}
+.rl2 button:hover{background:var(--orange)}
+.rl2 .x{width:auto;padding:0 8px;margin-left:auto;font-size:12px}
+.rl2 b{min-width:22px;text-align:center}
+.rsum{display:flex;justify-content:space-between;align-items:baseline;font:20px var(--display);padding:14px 0 12px;border-top:2px dashed #111;margin-top:6px}
+.rb .field{width:100%;padding:11px;border:3px solid #111;border-radius:8px;background:#fff;color:#111;font:400 14px var(--mono);margin-bottom:12px}
+.pay{display:block;text-align:center;background:var(--orange);color:#111;border:3px solid #111;border-radius:10px;padding:13px;font:800 16px var(--body);text-decoration:none;box-shadow:4px 4px 0 #111;transition:transform .1s,box-shadow .1s}
+.pay:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #111}
+.pay:active{transform:translate(3px,3px);box-shadow:0 0 0 #111}
+.code{height:44px;margin-top:16px;background:repeating-linear-gradient(90deg,#111 0 2px,transparent 2px 4px,#111 4px 5px,transparent 5px 9px,#111 9px 12px,transparent 12px 14px)}
+.rcpt .empty{color:#555;padding:6px 0}
+footer{background:#111;color:#fff;padding:34px 0 26px;overflow:hidden}
+footer .big{font:clamp(48px,15vw,170px)/.9 var(--display);color:transparent;-webkit-text-stroke:2px var(--orange);white-space:nowrap}
+footer small{display:block;margin-top:14px;color:#bbb}
+#toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:#111;color:#fff;border:3px solid var(--orange);padding:10px 18px;border-radius:10px;font-weight:800;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:95;max-width:90vw;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media (min-width:900px){
+  .shop{grid-template-columns:minmax(0,1fr) 340px}
+  .rcpt{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px)}
+  main{padding-bottom:70px}
+  #toast{bottom:24px}
+}
+@media (max-width:899px){
+  .rcpt{position:fixed;left:0;right:0;bottom:0;z-index:70;max-height:84vh;max-height:84dvh;display:flex;flex-direction:column;transform:translateY(calc(100% - var(--hh)));transition:transform .4s cubic-bezier(.2,.9,.3,1)}
+  .rcpt.open{transform:none}
+  .rh{display:flex;align-items:center;justify-content:space-between;gap:10px;height:var(--hh);padding:0 20px env(safe-area-inset-bottom,0px);background:#111;color:#fff;border:0;border-top:4px solid var(--orange);font:800 16px var(--body);cursor:pointer;flex:none;width:100%}
+  .rh b{color:var(--orange)}
+  .rb{overflow:auto;min-height:0;border-width:0;border-radius:0;box-shadow:none;visibility:hidden;transition:visibility 0s .4s}
+  .rcpt.open .rb{visibility:visible;transition-delay:0s}
+}
+@media (max-width:620px){
+  .rowitem{grid-template-columns:56px 1fr auto;grid-template-areas:"em info add" "em price add"}
+  .em{width:56px;height:56px;font-size:28px}
+  .price{justify-self:start}
+  .logo{font-size:17px}.tools{gap:6px}.tools button,.tools a{padding:6px 10px;font-size:12px}
+  .s2{display:none}.s1{right:4%;bottom:22px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .lt{animation:drop .8s cubic-bezier(.3,1.5,.5,1) backwards;animation-delay:calc(var(--i)*.07s + .1s)}
+  @keyframes drop{from{transform:translateY(-130%) rotate(-14deg);opacity:0}}
+  .seal g{transform-origin:60px 60px;animation:spin 16s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .stk{animation:wob 4s ease-in-out infinite alternate}
+  .s2{animation-delay:-2s}
+  @keyframes wob{to{translate:0 -8px}}
+  .trk{animation:mq 30s linear infinite}
+  .t2 .trk{animation-direction:reverse}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  .rv{opacity:0;transform:translateX(-30px)}
+  .rv.in{opacity:1;transform:none;transition:opacity .45s ease,transform .45s cubic-bezier(.2,.9,.3,1)}
+  .rl.new{animation:print .45s ease-out}
+  @keyframes print{from{clip-path:inset(0 0 100% 0);transform:translateY(-14px)}}
+  .bump{animation:bump .4s}
+  @keyframes bump{40%{transform:scale(1.06) rotate(-1deg)}}
+}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap tb"><div class="logo">DINZXX STR</div><div class="tools"><button id="theme" type="button"></button><a id="walink" href="#" target="_blank" rel="noopener">Chat WA</a></div></div></div>
+
+<header class="hero">
+  <div class="wrap hh">
+    <h1 aria-label="DINZXX STR">
+      <span class="w1" aria-hidden="true"><span class="lt" style="--i:0">D</span><span class="lt" style="--i:1">I</span><span class="lt" style="--i:2">N</span><span class="lt" style="--i:3">Z</span><span class="lt" style="--i:4">X</span><span class="lt" style="--i:5">X</span></span>
+      <span class="w2" aria-hidden="true"><span class="lt" style="--i:6">S</span><span class="lt" style="--i:7">T</span><span class="lt" style="--i:8">R</span></span>
+    </h1>
+    <p>Uang IC, kendaraan, house, business, dan item untuk karaktermu.</p>
+    <a class="btn" href="#produk">Lihat daftar harga</a>
+    <svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="cp" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><circle cx="60" cy="60" r="58" fill="#111"/><g><text font-size="11" font-weight="800" fill="#ff6a13" textLength="270" lengthAdjust="spacing"><textPath href="#cp">KIRIM IN-GAME ✦ ORDER VIA WA ✦ </textPath></text></g><text x="60" y="73" text-anchor="middle" font-size="38" fill="#fff" font-weight="800">$</text></svg>
+    <div class="stk s2"><b id="s2">0</b>kategori buka</div>
+    <div class="stk s1"><b id="s1">0</b>barang tersedia</div>
+  </div>
+</header>
+<div class="tapes" aria-hidden="true"><div class="tp t1"><div class="trk" id="t1"></div></div><div class="tp t2"><div class="trk" id="t2"></div></div></div>
+
+<div class="wrap">
+  <main id="produk">
+    <div class="shop">
+      <section>
+        <h2>Daftar harga</h2>
+        <div class="tabs" id="chips" role="group" aria-label="Filter kategori"></div>
+        <div class="list" id="grid"></div>
+        <div class="how" id="cara">
+          <div><em>1</em><b>Pilih produk</b><span>Tambahkan ke struk, bisa lebih dari satu.</span></div>
+          <div><em>2</em><b>Kirim pesanan</b><span>Isi nama karakter in-game, lalu tekan Pesan via WhatsApp.</span></div>
+          <div><em>3</em><b>Bayar dan terima</b><span>Setelah pembayaran dikonfirmasi, barang dikirim ke karaktermu.</span></div>
+        </div>
+      </section>
+      <aside class="rcpt" id="rcpt">
+        <button class="rh" id="rh" type="button" aria-expanded="false" aria-controls="rb"><span>Struk (<b id="count">0</b>)</span><span id="rtot">Rp0</span></button>
+        <div class="rb" id="rb">
+          <div class="rt">DINZXX STR<small>Struk pesanan</small></div>
+          <div id="items"></div>
+          <div class="rsum"><span>Total</span><span id="total">Rp0</span></div>
+          <input class="field" id="nick" placeholder="Nama karakter in-game" autocomplete="off">
+          <a class="pay" id="wa" href="#" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+          <div class="code" aria-hidden="true"></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+<footer><div class="wrap"><div class="big" aria-hidden="true">DINZXX STR</div><small>DINZXX STR · Bukan produk resmi Rockstar Games atau SA-MP Team.</small></div></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+var WA_NUMBER = "6289515549623";
+var PRODUCTS = [], CATS = [], cart = {}, filter = "Semua", lastJson = "", prevIds = {};
+var EMO = {"Uang IC":"💰","Kendaraan":"🚗","House":"🏠","Business":"🏢","Item":"📦"};
+var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function rp(n){return "Rp"+n.toLocaleString("id-ID");}
+function $(id){return document.getElementById(id);}
+$("walink").href="https://wa.me/"+WA_NUMBER;
+
+/* reveal saat scroll */
+var io = "IntersectionObserver" in window ? new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+},{threshold:.08}) : null;
+function reveal(el,i){el.classList.add("rv");el.style.transitionDelay=(i%6)*55+"ms";if(io)io.observe(el);else el.classList.add("in");}
+function count(el,to){
+  if(RM){el.textContent=to;return;}
+  var t0=null;
+  function f(t){if(!t0)t0=t;var k=Math.min((t-t0)/900,1);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f);}
+  requestAnimationFrame(f);
+}
+var tt;
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){t.classList.remove("on");},1500);}
+function bump(el){el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");}
+/* ikon terbang ke struk */
+function fly(fromEl,emoji){
+  if(RM||!fromEl.animate)return;
+  var tgt=getComputedStyle($("rh")).display!=="none"?$("rh"):$("rb");
+  var a=fromEl.getBoundingClientRect(),b=tgt.getBoundingClientRect(),n=document.createElement("div");
+  n.textContent=emoji;n.style.cssText="position:fixed;z-index:99;font-size:30px;pointer-events:none;left:"+(a.left+a.width/2-15)+"px;top:"+(a.top+a.height/2-15)+"px";
+  document.body.appendChild(n);
+  var dx=b.left+Math.min(b.width/2,120)-a.left-a.width/2,dy=b.top+24-a.top-a.height/2;
+  n.animate([{transform:"translate(0,0) scale(1)",opacity:1},{transform:"translate("+dx*.5+"px,"+(dy*.5-70)+"px) scale(1.4) rotate(-12deg)",opacity:1,offset:.45},{transform:"translate("+dx+"px,"+dy+"px) scale(.3)",opacity:.2}],{duration:700,easing:"ease-in-out"}).onfinish=function(){n.remove();};
+}
+/* konfeti */
+function confetti(el){
+  if(RM||!el.animate)return;
+  var r=el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,cols=["#ff6a13","#111","#fff","#ffb020"];
+  for(var i=0;i<20;i++){
+    var d=document.createElement("i");
+    d.style.cssText="position:fixed;z-index:99;pointer-events:none;width:10px;height:10px;left:"+cx+"px;top:"+cy+"px;background:"+cols[i%4]+";border:2px solid #111";
+    document.body.appendChild(d);
+    var a=Math.random()*Math.PI*2,v=70+Math.random()*120;
+    d.animate([{transform:"translate(0,0) rotate(0)",opacity:1},{transform:"translate("+Math.cos(a)*v+"px,"+(Math.sin(a)*v+50)+"px) rotate("+(Math.random()*540)+"deg)",opacity:0}],{duration:800+Math.random()*400,easing:"cubic-bezier(.2,.8,.3,1)"}).onfinish=(function(n){return function(){n.remove();};})(d);
+  }
+}
+
+function renderChips(){
+  var el=$("chips");el.innerHTML="";
+  [{name:"Semua",closed:false}].concat(CATS).forEach(function(c){
+    var b=document.createElement("button");b.className="tab";
+    b.textContent=(EMO[c.name]?EMO[c.name]+" ":"")+c.name+(c.closed?" (tutup)":"");
+    b.disabled=c.closed;
+    b.setAttribute("aria-pressed",String(c.name===filter));
+    b.onclick=function(){filter=c.name;renderChips();renderGrid();};
+    el.appendChild(b);
+  });
+}
+function renderGrid(){
+  var g=$("grid");g.innerHTML="";
+  if(!PRODUCTS.length){g.innerHTML='<div class="empty">Belum ada barang yang tersedia.</div>';return;}
+  PRODUCTS.filter(function(p){return filter==="Semua"||p.cat===filter;}).forEach(function(p,i){
+    var row=document.createElement("div");
+    row.innerHTML='<article class="rowitem"><div class="em"></div><div class="info"><h3></h3><p></p></div><span class="price"></span><button class="add" type="button">+ Tambah</button></article>';
+    var art=row.firstChild,em=EMO[p.cat]||"📦",emEl=art.querySelector(".em");
+    emEl.textContent=em;
+    art.querySelector("h3").textContent=p.name;
+    art.querySelector("p").textContent=p.desc;
+    art.querySelector(".price").textContent=rp(p.price);
+    art.querySelector(".add").onclick=function(){
+      cart[p.id]=(cart[p.id]||0)+1;renderCart();toast(p.name+" masuk struk");fly(emEl,em);bump(getComputedStyle($("rh")).display!=="none"&&!$("rcpt").classList.contains("open")?$("rh"):$("rb"));
+    };
+    reveal(row,i);g.appendChild(row);
+  });
+}
+function renderCart(){
+  var items=$("items");items.innerHTML="";
+  var total=0,n=0,lines=[],ids={};
+  PRODUCTS.forEach(function(p){
+    var q=cart[p.id];if(!q)return;
+    ids[p.id]=1;total+=p.price*q;n+=q;lines.push(q+"x "+p.name+" ("+rp(p.price*q)+")");
+    var r=document.createElement("div");r.className="rl"+(prevIds[p.id]?"":" new");
+    r.innerHTML='<div class="rl1"><span class="nm"></span><span class="pr"></span></div><div class="rl2"><button type="button" aria-label="Kurangi">−</button><b></b><button type="button" aria-label="Tambah">+</button><button type="button" class="x">Hapus</button></div>';
+    r.querySelector(".nm").textContent=p.name;
+    r.querySelector(".pr").textContent=rp(p.price*q);
+    r.querySelector("b").textContent=q;
+    var bs=r.querySelectorAll("button");
+    bs[0].onclick=function(){cart[p.id]--;if(cart[p.id]<=0)delete cart[p.id];renderCart();};
+    bs[1].onclick=function(){cart[p.id]++;renderCart();};
+    bs[2].onclick=function(){delete cart[p.id];renderCart();};
+    items.appendChild(r);
+  });
+  prevIds=ids;
+  if(!n){items.innerHTML='<div class="empty">Struk masih kosong. Tambahkan produk dulu.</div>';}
+  $("count").textContent=n;$("total").textContent=rp(total);$("rtot").textContent=rp(total);
+  var nick=$("nick").value.trim();
+  var msg="Halo, saya mau pesan:\n"+lines.join("\n")+"\nTotal: "+rp(total)+"\nKarakter: "+(nick||"-");
+  var wa=$("wa");
+  wa.href=n?"https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(msg):"#";
+  wa.style.opacity=n?1:.5;
+}
+function fillTape(el){
+  var one=CATS.map(function(c){return (EMO[c.name]||"")+" "+c.name.toUpperCase();}).join("  ✦  ")+"  ✦  ";
+  var s="";for(var i=0;i<4;i++)s+=one;
+  el.innerHTML="<span></span><span></span>";el.children[0].textContent=el.children[1].textContent=s;
+}
+function applyData(d){
+  var j=JSON.stringify(d);if(j===lastJson)return;lastJson=j;
+  PRODUCTS=d.products;CATS=d.categories;
+  if(CATS.some(function(c){return c.name===filter&&c.closed;}))filter="Semua";
+  Object.keys(cart).forEach(function(k){if(!PRODUCTS.some(function(p){return String(p.id)===k;}))delete cart[k];});
+  fillTape($("t1"));fillTape($("t2"));
+  count($("s1"),PRODUCTS.length);
+  count($("s2"),CATS.filter(function(c){return !c.closed;}).length);
+  renderChips();renderGrid();renderCart();
+}
+function load(){
+  fetch("/api/products",{cache:"no-store"}).then(function(r){return r.json();}).then(applyData).catch(function(){
+    $("grid").innerHTML='<div class="empty">Daftar produk belum bisa dimuat. Muat ulang halaman.</div>';
+  });
+}
+
+$("nick").oninput=renderCart;
+$("rh").onclick=function(){var o=$("rcpt").classList.toggle("open");$("rh").setAttribute("aria-expanded",String(o));};
+$("wa").addEventListener("click",function(e){if(this.getAttribute("href")==="#"){e.preventDefault();toast("Tambahkan produk dulu");}else confetti(this);});
+document.querySelectorAll(".how div").forEach(function(el,i){reveal(el,i);});
+
+/* tema */
+var root=document.documentElement,tb=$("theme");
+function isDark(){return root.getAttribute("data-theme")==="dark";}
+function label(){tb.textContent=isDark()?"Terang":"Gelap";}
+function setTheme(t){root.setAttribute("data-theme",t);try{localStorage.setItem("theme",t);}catch(e){}label();}
+try{var saved=localStorage.getItem("theme");if(saved)root.setAttribute("data-theme",saved);}catch(e){}
+tb.onclick=function(){setTheme(isDark()?"light":"dark");};
+label();
+
+applyData({"categories": [{"name": "Uang IC", "closed": false}, {"name": "Kendaraan", "closed": false}, {"name": "House", "closed": false}, {"name": "Business", "closed": false}, {"name": "Item", "closed": false}], "products": [{"id": 1, "cat": "Uang IC", "name": "Uang IC $100.000", "desc": "Dikirim ke karakter kamu in-game.", "price": 5000}, {"id": 2, "cat": "Uang IC", "name": "Uang IC $1.000.000", "desc": "Paket hemat untuk modal usaha atau beli kendaraan.", "price": 40000}, {"id": 3, "cat": "Uang IC", "name": "Uang IC $10.000.000", "desc": "Paket besar untuk beli house atau business.", "price": 350000}, {"id": 4, "cat": "Kendaraan", "name": "Motor Sport", "desc": "Kendaraan motor sport atas nama karakter kamu.", "price": 25000}, {"id": 5, "cat": "Kendaraan", "name": "Mobil Sport", "desc": "Mobil sport lengkap, siap pakai di jalan.", "price": 60000}, {"id": 6, "cat": "House", "name": "House Kecil", "desc": "Rumah ukuran kecil, tersedia di beberapa lokasi.", "price": 80000}, {"id": 7, "cat": "House", "name": "House Besar", "desc": "Rumah besar dengan interior luas.", "price": 200000}, {"id": 8, "cat": "Business", "name": "Business Kecil", "desc": "Usaha kecil yang menghasilkan pemasukan IC.", "price": 150000}, {"id": 9, "cat": "Item", "name": "Paket Item Starter", "desc": "Item dasar untuk memulai: makanan, ponsel, dan perlengkapan.", "price": 15000}]});
+</script>
+</body>
+</html>
